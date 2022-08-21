@@ -1,18 +1,17 @@
 Summary:	A tool to work with public-inbox and patch archives
 Summary(pl.UTF-8):	Narzędzie do pracy z publiczną skrzynką odbiorczą i archiwami łatek
 Name:		b4
-Version:	0.8.0
-Release:	4
+Version:	0.9.0
+Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	https://www.kernel.org/pub/software/devel/b4/%{name}-%{version}.tar.xz
-# Source0-md5:	87c4eb9d7dd5d94139e7768b1ce43804
+# Source0-md5:	082a2d89bcc701190608deecf9d7c466
 URL:		https://git.kernel.org/pub/scm/utils/b4/b4.git
 BuildRequires:	python3-modules >= 1:3.6
 BuildRequires:	python3-setuptools
-BuildRequires:	rpm-pythonprov
+BuildRequires:	rpm-pythonprov >= 5.4.15-59
 BuildRequires:	rpmbuild(macros) >= 1.714
-BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildArch:	noarch
@@ -32,9 +31,6 @@ jak ten używany przy rozwijaniu jądra Linuksa.
 
 %prep
 %setup -q
-
-# ~= not supported properly by rpm-pythonprov
-%{__sed} -i -e 's/~=/>=/' requirements.txt setup.py
 
 %build
 %py3_build
