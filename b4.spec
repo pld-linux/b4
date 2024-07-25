@@ -1,12 +1,12 @@
 Summary:	A tool to work with public-inbox and patch archives
 Summary(pl.UTF-8):	Narzędzie do pracy z publiczną skrzynką odbiorczą i archiwami łatek
 Name:		b4
-Version:	0.14.0
+Version:	0.14.1
 Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	https://www.kernel.org/pub/software/devel/b4/%{name}-%{version}.tar.xz
-# Source0-md5:	ff3216cb20467f76638faa89814292c0
+# Source0-md5:	9976f7b0fbdcccd13df01d426ae5e2fd
 URL:		https://git.kernel.org/pub/scm/utils/b4/b4.git
 BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	python3-setuptools >= 1:61
@@ -44,8 +44,6 @@ EOF
 rm -rf $RPM_BUILD_ROOT
 
 %py3_install
-
-%{__rm} -r $RPM_BUILD_ROOT%{py3_sitescriptdir}/tests
 
 %clean
 rm -rf $RPM_BUILD_ROOT
