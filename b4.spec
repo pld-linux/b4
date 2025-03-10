@@ -2,7 +2,7 @@ Summary:	A tool to work with public-inbox and patch archives
 Summary(pl.UTF-8):	Narzędzie do pracy z publiczną skrzynką odbiorczą i archiwami łatek
 Name:		b4
 Version:	0.14.2
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	https://www.kernel.org/pub/software/devel/b4/%{name}-%{version}.tar.xz
