@@ -1,17 +1,19 @@
 Summary:	A tool to work with public-inbox and patch archives
 Summary(pl.UTF-8):	Narzędzie do pracy z publiczną skrzynką odbiorczą i archiwami łatek
 Name:		b4
-Version:	0.14.2
-Release:	2
+Version:	0.14.3
+Release:	1
 License:	GPL v2+
 Group:		Development/Tools
 Source0:	https://www.kernel.org/pub/software/devel/b4/%{name}-%{version}.tar.xz
-# Source0-md5:	49bdb0f1e8d64a300f55b6b4ee2c9490
+# Source0-md5:	db7c3c7152cdc6bc91cd5923f78b5935
 URL:		https://git.kernel.org/pub/scm/utils/b4/b4.git
+BuildRequires:	python3-build
+BuildRequires:	python3-installer
 BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	python3-setuptools >= 1:61
 BuildRequires:	rpm-pythonprov >= 5.4.15-59
-BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	rpmbuild(macros) >= 2.044
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildArch:	noarch
@@ -32,18 +34,13 @@ jak ten używany przy rozwijaniu jądra Linuksa.
 %prep
 %setup -q
 
-cat >setup.py <<EOF
-from setuptools import setup
-setup()
-EOF
-
 %build
-%py3_build
+%py3_build_pyproject
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%py3_install
+%py3_install_pyproject
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -53,4 +50,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.rst
 %attr(755,root,root) %{_bindir}/b4
 %{py3_sitescriptdir}/b4
-%{py3_sitescriptdir}/b4-%{version}-py*.egg-info
+%{py3_sitescriptdir}/b4-%{version}.dist-info
